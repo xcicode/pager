@@ -1,4 +1,4 @@
-
+from string import Template
 
 def header(text,level):
     level=max(1,level)
@@ -30,3 +30,28 @@ def d(text):
 def quote(text):
     result='> '+text
     return result
+
+def qcodes(text):
+    result='`'+text+'`'
+    return result
+
+def qcodem(text):
+    result="```\n"+text+"\n```"
+    return result
+
+def link(text,link):
+    result=Template('[$text]($link)')
+    return result
+
+def lists(texts,ordered):
+    i=1
+    result=""
+    for text in texts:
+        if ordered==True:
+            result=result+str(i)+str(text)+'\n'
+        else:
+            result=result+"- "+str(text)+'\n'
+        i=i+1
+    return result
+
+
